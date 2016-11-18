@@ -37,6 +37,7 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
+  createReactApp: require('../assets/create-react-app.png'),
   city: require("../assets/city.jpg"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png")
@@ -81,34 +82,69 @@ export default class Presentation extends React.Component {
             <Heading size={2} caps fit textColor="primary" textFont="primary">
               Buildging UI
             </Heading>
-            <Appear>
-              <List>
-                <ListItem textColor="white">Website</ListItem>
-                <ListItem textColor="white">iOS</ListItem>
-                <ListItem textColor="white">Android</ListItem>
-              </List>
-            </Appear>
-            <Appear>
-              <List>
-                <ListItem textColor="white">macOS</ListItem>
-                <ListItem textColor="white">Windows</ListItem>
-                <ListItem textColor="white">Ubuntu</ListItem>
-              </List>
-            </Appear>
-            <Appear>
-              <List>
-                <ListItem textColor="white">WebVR</ListItem>
-                <ListItem textColor="white">And...</ListItem>
-              </List>
-            </Appear>
+            <Layout>
+              <Fill>
+                <Appear>
+                  <List>
+                    <ListItem textColor="white">Website</ListItem>
+                    <ListItem textColor="white">iOS</ListItem>
+                    <ListItem textColor="white">Android</ListItem>
+                  </List>
+                </Appear>
+              </Fill>
+              <Appear>
+                <Fill>
+                  <List>
+                    <ListItem textColor="white">macOS</ListItem>
+                    <ListItem textColor="white">Windows</ListItem>
+                    <ListItem textColor="white">Ubuntu</ListItem>
+                  </List>
+                </Fill>
+              </Appear>
+              <Appear>
+                <Fill>
+                  <List>
+                    <ListItem textColor="white">WebVR</ListItem>
+                    <ListItem textColor="white">And...</ListItem>
+                  </List>
+                </Fill>
+              </Appear>
+            </Layout>
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
-            <CodePane
-              lang="jsx"
-              source={require("raw!../assets/deck.example")}
-              margin="20px auto"
-            />
+          <Slide transition={["zoom", "fade"]} bgColor="primary">
+            <Heading size={2} caps fit textColor="white">
+              Let's build an app
+            </Heading>
+            <Layout>
+              <Fill>
+                <CodePane
+                  lang="bash"
+                  source={`
+# Install the React CLI tool globally
+npm install -g create-react-app
+
+# Then, create your awesome app
+create-react-app my-awesome-app
+
+# Go to the folder of the app you've just created
+cd my-awesome-app
+
+# Start the development server
+npm start
+
+# Then open http://localhost:3000
+                  `}
+                  margin="20px auto"
+                />
+              </Fill>
+              <Fill>
+                <Link href="http://localhost:3000">
+                  <Text bold textColor="white" margin="20px 0">http://localhost:3000</Text>
+                </Link>
+                <Image src={images.createReactApp.replace("/", "")} width={350} />
+              </Fill>
+            </Layout>
           </Slide>
 
           <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
