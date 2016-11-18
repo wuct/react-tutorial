@@ -43,8 +43,8 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "#CB1B45",
-  secondary: "purple",
+  primary: "#D0104C",
+  secondary: "#FC9F4D"
 });
 
 export default class Presentation extends React.Component {
@@ -212,11 +212,18 @@ surge -p ./build/ -d my-first-react-app.surge.sh
 
           <Slide transition={["slide"]} bgColor="black">
             <BlockQuote>
-              <Quote>Wonderfully formatted quotes</Quote>
-              <Cite>Ken Wheeler</Cite>
+              <Quote>All non-trivial abstractions, to some degree, are leaky.</Quote>
+              <Cite>Joel Spolsky, CEO of Stack Overflow</Cite>
             </BlockQuote>
+            <Link
+              textColor="secondary"
+              href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html"
+            >
+              The Law of Leaky Abstractions
+            </Link>
           </Slide>
-          <Slide transition={["spin", "zoom"]} bgColor="purple">
+
+          <Slide transition={["spin", "zoom"]} bgColor="secondary">
             <Heading caps fit size={1} textColor="primary">
               Inline Markdown
             </Heading>
