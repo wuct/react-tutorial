@@ -1,0 +1,24 @@
+// Js filses is loaded by Webpack's babel-loader
+
+import React, { Component } from 'react';
+import logo from './logo.svg'; // loaded by Webpack's url-loader
+import './App.css'; // loaded by Webpack's css-loader and style-loader
+
+class App extends Component {
+  render() {
+    return (
+      // Jsx is transformed by Babel's babel-plugin-transform-react-jsx
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React</h2>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
+  }
+}
+
+export default App;

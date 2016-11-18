@@ -225,18 +225,55 @@ surge -p ./build/ -d my-first-react-app.surge.sh
 
           <Slide transition={["spin", "zoom"]} bgColor="secondary">
             <Heading caps fit size={1} textColor="primary">
-              Inline Markdown
+              What's inside create-react-app?
             </Heading>
-
+            <List>
+              <ListItem textColor="white">Webpack with plugins and loaders</ListItem>
+              <ListItem textColor="white">Babel with a preset for React</ListItem>
+              <ListItem textColor="white">Autoprefixer</ListItem>
+              <ListItem textColor="white">ESLint</ListItem>
+              <ListItem textColor="white">Jest</ListItem>
+              <ListItem textColor="white">and others.</ListItem>
+            </List>
           </Slide>
 
           <Slide transition={["slide", "spin"]} bgColor="primary">
-            <Heading caps fit size={1} textColor="tertiary">
-              Smooth
+            <Heading caps size={1} textColor="secondary">
+              Webpack
             </Heading>
-            <Heading caps fit size={1} textColor="secondary">
-              Combinable Transitions
+            <List>
+              <ListItem>
+                <Link href="https://webpack.js.org/" textColor="white">
+                  webpack.js.org
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://webpack.github.io/" textColor="white">
+                  webpack.github.io
+                </Link>
+              </ListItem>
+            </List>
+            <Heading caps size={1} textColor="secondary">
+              Babel
             </Heading>
+            <List>
+              <ListItem>
+                <Link href="https://babeljs.io/" textColor="white">
+                  babeljs.io
+                </Link>
+              </ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="secondary" notes="Jsx is smiliar to HTML.">
+            <Heading size={1} caps fit textColor="white">
+              How do we load App.js?
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/AppWithComment.example")}
+              margin="20px auto"
+            />
           </Slide>
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
