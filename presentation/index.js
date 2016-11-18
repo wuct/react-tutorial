@@ -37,16 +37,14 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  createReactApp: require('../assets/create-react-app.png'),
-  city: require("../assets/city.jpg"),
-  logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  createReactApp: require("../assets/create-react-app.png")
 };
 
 preloader(images);
 
 const theme = createTheme({
-  primary: "#CB1B45"
+  primary: "#CB1B45",
+  secondary: "purple",
 });
 
 export default class Presentation extends React.Component {
@@ -147,38 +145,69 @@ npm start
             </Layout>
           </Slide>
 
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="primary">
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={1} caps fit textColor="tertiary">
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={1} caps fit textColor="primary">
-                Background Imagery
-              </Heading>
-            </Appear>
+          <Slide transition={["slide"]} bgColor="secondary" notes="Jsx is smiliar to HTML.">
+            <Heading size={1} caps fit textColor="white">
+              Go break something!
+            </Heading>
+            <Heading size={4} textColor="primary">
+              ./src/App.js
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/App.example")}
+              margin="20px auto"
+            />
           </Slide>
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
-            <Heading caps fit>Flexible Layouts</Heading>
-            <Layout>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Left
-                </Heading>
-              </Fill>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Right
-                </Heading>
-              </Fill>
-            </Layout>
+            <Heading caps fit>Feel Good to Deploy</Heading>
+            <CodePane
+              lang="bash"
+              source={`
+# Install surge.sh CLI tool globally
+npm install -g surge
+
+# Create an optimized production build
+npm run build
+
+# Deploy our app to surge
+surge -p ./build/ -d my-first-react-app.surge.sh
+
+# Login or create an surge account in the CLI
+
+# Then open https://my-first-react-app.surge.sh
+# Yeah!
+            `}
+              margin="20px auto"
+            />
+          </Slide>
+
+          <Slide transition={["zoom", "fade"]} bgColor="black">
+            <Heading caps fit textColor="white">A useful tip</Heading>
+            <Text bold textColor="primary">
+              Save the deploy script to ./package.json
+            </Text>
+            <CodePane
+              lang="json"
+              source={
+`{
+  ...
+  "scripts": {
+    ...
+    "deploy": "surge -p ./build/ -d my-first-react-app.surge.sh"
+  }
+}`
+              }
+              margin="20px auto"
+            />
+            <Heading size={4} textColor="white">
+              To update our app
+            </Heading>
+            <CodePane
+              lang="bash"
+              source={`npm run deploy`}
+              margin="20px auto"
+            />
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black">
@@ -187,20 +216,11 @@ npm start
               <Cite>Ken Wheeler</Cite>
             </BlockQuote>
           </Slide>
-          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
+          <Slide transition={["spin", "zoom"]} bgColor="purple">
             <Heading caps fit size={1} textColor="primary">
               Inline Markdown
             </Heading>
-            <Markdown>
-              {`
-![Markdown Logo](${images.markdown.replace("/", "")})
 
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
-              `}
-            </Markdown>
           </Slide>
 
           <Slide transition={["slide", "spin"]} bgColor="primary">
