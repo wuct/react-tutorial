@@ -38,7 +38,6 @@ require("spectacle/lib/themes/default/index.css");
 
 const images = {
   city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png")
 };
@@ -76,10 +75,32 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["slide"]} bgColor="black">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
+            <Heading size={2} caps fit textColor="white" textFont="primary">
+              React is a Javasript Library for
             </Heading>
+            <Heading size={2} caps fit textColor="primary" textFont="primary">
+              Buildging UI
+            </Heading>
+            <Appear>
+              <List>
+                <ListItem textColor="white">Website</ListItem>
+                <ListItem textColor="white">iOS</ListItem>
+                <ListItem textColor="white">Android</ListItem>
+              </List>
+            </Appear>
+            <Appear>
+              <List>
+                <ListItem textColor="white">macOS</ListItem>
+                <ListItem textColor="white">Windows</ListItem>
+                <ListItem textColor="white">Ubuntu</ListItem>
+              </List>
+            </Appear>
+            <Appear>
+              <List>
+                <ListItem textColor="white">WebVR</ListItem>
+                <ListItem textColor="white">And...</ListItem>
+              </List>
+            </Appear>
           </Slide>
 
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
