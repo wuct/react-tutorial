@@ -510,21 +510,85 @@ const addToCart = (cart, item) => [ ...cart, item]`
             </List>
           </Slide>
 
-          <Slide transition={["zoom"]} bgColor="secondary">
-            <Heading size={1} caps fit textColor="black">
-              Benefits of pure functions
+          <Slide transition={["spin"]} bgColor="primary">
+            <Heading size={1} caps fit textColor="secondary">
+              List and keys
             </Heading>
-            <List>
-              <ListItem textColor="white">Simple</ListItem>
-              <ListItem textColor="white">Reproducible results</ListItem>
-              <ListItem textColor="white">Easy to test</ListItem>
-              <ListItem textColor="white">Easy to reuse</ListItem>
-              <ListItem textColor="white">Can be memozied</ListItem>
-              <ListItem textColor="white">A lot of fun!</ListItem>
-            </List>
+            <Heading size={2} caps fit textColor="white">
+              Make sure to add a key to every item of an array
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={
+`const items = [
+  { id: 'elephant', count: 2 },
+  { id: 'lion', count: 3 },
+  { id: 'giraffe', count: 1 },
+]
+
+const Refrigerator = () =>
+  <List>
+    {
+      items.map(({ id, count }) =>
+        <Item
+          key={id}
+          id={id}
+          count={count}
+        />
+      )
+    }
+  </List>
+`
+              }
+            />
           </Slide>
 
+          <Slide transition={["zoom"]} bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              How about routing?
+            </Heading>
+            <Text textColor="white">A simple router</Text>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/Router.example")}
+            />
+            <Text textColor="white">
+              A more complex approach:
+              <Link
+                margin="0 20px 0"
+                textColor="primary"
+                href="https://medium.freecodecamp.com/you-might-not-need-react-router-38673620f3d#.7td95fpw2"
+              >
+                You might not need react router
+              </Link>
+            </Text>
+          </Slide>
 
+          <Slide transition={["spin"]} bgColor="primary">
+            <Heading size={1} caps fit textColor="white">
+              How about sharing states across pages?
+            </Heading>
+            <Text textColor="black">Lift states to a container component</Text>
+            <CodePane
+              margin="20px 0"
+              lang="jsx"
+              source={require("raw!../assets/StateContainer.example")}
+            />
+            <Text textColor="white">
+              Or we can use Redux, Mobx or others
+            </Text>
+          </Slide>
+
+          <Slide bgColor="black">
+            <Heading size={1} caps fit textColor="secondary">
+              Important concepts to build a great React app
+            </Heading>
+            <List>
+              <ListItem textColor="white">Sigle source of truth</ListItem>
+              <ListItem textColor="white">Immutable data structure</ListItem>
+              <ListItem textColor="white">Pure function</ListItem>
+            </List>
+          </Slide>
         </Deck>
       </Spectacle>
     );
