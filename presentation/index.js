@@ -15,7 +15,6 @@ import {
   Link,
   ListItem,
   List,
-  Markdown,
   Quote,
   Slide,
   Spectacle,
@@ -27,9 +26,6 @@ import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
-
-// Import custom component
-import Interactive from "../assets/interactive";
 
 // Require CSS
 require("normalize.css");
@@ -284,7 +280,6 @@ surge -p ./build/ -d my-first-react-app.surge.sh
               <ListItem>State and lifecycle</ListItem>
               <ListItem>Props</ListItem>
               <ListItem>Handling events</ListItem>
-              <ListItem>Forms</ListItem>
               <ListItem>List and keys</ListItem>
             </List>
           </Slide>
@@ -397,16 +392,139 @@ surge -p ./build/ -d my-first-react-app.surge.sh
             />
           </Slide>
 
+          <Slide bgColor="secondary">
+            <Heading size={1} caps>
+              Lifecycle
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/ComponentLifeCycle.example")}
+              margin="20px auto"
+            />
+          </Slide>
+
           <Slide transition={["slide"]} bgColor="primary">
             <Heading size={1} caps>
               Lifecycle
             </Heading>
             <CodePane
               lang="jsx"
-              source={require("raw!../assets/Lifecycle.example")}
+              source={require("raw!../assets/lifecycle.example")}
+              margin="20px auto"
+            />
+            <Text>Copy from React source code</Text>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="primary">
+            <Heading size={1} fit caps>
+              Passing data through props
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={
+`class Parent extends Component {
+  render() {
+    return <Children data={{ name: 'foo' }} />
+  }
+}`
+              }
+              margin="20px auto"
+            />
+            <CodePane
+              lang="jsx"
+              source={
+`class Children extends Component {
+  render() {
+    return <div>Name: {this.props.name}</div>
+  }
+}`
+              }
+              margin="20px auto"
+            />
+            <Text>Or we can use functional components!</Text>
+            <CodePane
+              lang="jsx"
+              source={
+`const Parent = () => <Children data={{ name: 'foo' }} />
+
+
+const Children = (props) => <div>Name: {props.name}</div>`
+              }
               margin="20px auto"
             />
           </Slide>
+          <Slide bgColor="black" notes="Always keep components as pure as possible">
+            <Heading fit caps>
+              What is a pure functions?
+            </Heading>
+            <Text textColor="primary">
+              A function where the return value is only determined by its input values, without observable side effects.
+            </Text>
+            <Layout margin="40px auto">
+              <Fill>
+                <Heading size={4} caps textColor="white">
+                  Impure
+                </Heading>
+                <CodePane
+                  lang="jsx"
+                  source={
+`let count = 1
+const increase = () => count + 1
+
+const addToCart = (cart, item) => {
+  cart.push(item)
+}`
+                  }
+                />
+              </Fill>
+              <Fill>
+                <Heading size={4} caps textColor="white">
+                  Pure
+                </Heading>
+                <CodePane
+                  lang="jsx"
+                  source={
+`const increase = (count) => count + 1
+
+const addToCart = (cart, item) => cart.concat([item])
+
+// or use ES6 spread syntax
+const addToCart = (cart, item) => [ ...cart, item]`
+                  }
+                />
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="secondary">
+            <Heading size={1} caps fit textColor="black">
+              Benefits of pure functions
+            </Heading>
+            <List>
+              <ListItem textColor="white">Simple</ListItem>
+              <ListItem textColor="white">Reproducible results</ListItem>
+              <ListItem textColor="white">Easy to test</ListItem>
+              <ListItem textColor="white">Easy to reuse</ListItem>
+              <ListItem textColor="white">Can be memozied</ListItem>
+              <ListItem textColor="white">A lot of fun!</ListItem>
+            </List>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="secondary">
+            <Heading size={1} caps fit textColor="black">
+              Benefits of pure functions
+            </Heading>
+            <List>
+              <ListItem textColor="white">Simple</ListItem>
+              <ListItem textColor="white">Reproducible results</ListItem>
+              <ListItem textColor="white">Easy to test</ListItem>
+              <ListItem textColor="white">Easy to reuse</ListItem>
+              <ListItem textColor="white">Can be memozied</ListItem>
+              <ListItem textColor="white">A lot of fun!</ListItem>
+            </List>
+          </Slide>
+
+
         </Deck>
       </Spectacle>
     );

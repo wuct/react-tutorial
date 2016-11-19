@@ -1,0 +1,24 @@
+class extends Component {
+  constructor(...args) {
+    super(...args)
+  }
+
+  // mount
+  componentWillMount() {}
+  componentDidMount() {} // Instantiate network requests and subscribe events
+
+  // update
+  componentWillReceiveProps() {}
+  shouldComponentUpdate() {} // Enhance performance
+  componentWillUpdate() {}
+  componentDidUpdate() {}
+
+  // unmount
+  componentWillUnmount() {} // Cancel subscriptions
+
+  render() {
+    return (
+      <div>YOLO!</div>
+    );
+  }
+}
