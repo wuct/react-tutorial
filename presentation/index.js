@@ -53,15 +53,12 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
           <Slide transition={["zoom"]} bgColor="primary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
+            <Heading size={1} fit caps lineHeight={1} textColor="secondary">
               React 101
             </Heading>
-            <Heading size={1} fit caps>
-              2016/11/19 @ ALPHACamp
-            </Heading>
-            <Text bold textColor="black">
+            <Heading  size={4} margin="0 0 20px 0" textColor="black">
               吳敬庭 WUCT
-            </Text>
+            </Heading>
             <Link href="https://blog.wuct.me">
               <Text bold caps textColor="tertiary">Blog</Text>
             </Link>
@@ -276,29 +273,124 @@ surge -p ./build/ -d my-first-react-app.surge.sh
             />
           </Slide>
 
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Slide transition={["fade"]} bgColor="black" textColor="primary">
+            <Heading size={1} caps fit textColor="white">
+              Core concepts of React
+            </Heading>
             <List>
-              <Appear><ListItem>Inline style based theme system</ListItem></Appear>
-              <Appear><ListItem>Autofit text</ListItem></Appear>
-              <Appear><ListItem>Flexbox layout system</ListItem></Appear>
-              <Appear><ListItem>React-Router navigation</ListItem></Appear>
-              <Appear><ListItem>PDF export</ListItem></Appear>
-              <Appear><ListItem>And...</ListItem></Appear>
+              <ListItem>React Element</ListItem>
+              <ListItem>React Componet</ListItem>
+              <ListItem>State and lifecycle</ListItem>
+              <ListItem>Props</ListItem>
+              <ListItem>Handling events</ListItem>
+              <ListItem>Forms</ListItem>
+              <ListItem>List and keys</ListItem>
             </List>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="primary">
             <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
+              React Element
             </Heading>
-            <Interactive/>
+            <Text>The JSX</Text>
+            <CodePane
+              lang="jsx"
+              source={`<div>Hello World</div>`}
+              margin="20px auto"
+            />
+            <Text>is Actually</Text>
+            <CodePane
+              lang="jsx"
+              source={`React.createElement('div', {}, 'Hello World')`}
+              margin="20px auto"
+            />
+            <Text>which is</Text>
+            <CodePane
+              lang="jsx"
+              source={`{ type: 'div', children: 'Hello World', ... }`}
+              margin="20px auto"
+            />
           </Slide>
 
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Made with love in Seattle by
+          <Slide transition={["slide"]} bgColor="primary">
+            <Heading size={1} caps fit textColor="tertiary">
+              React Element Tree
             </Heading>
-            <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+            <CodePane
+              lang="jsx"
+              source={
+`<div>
+  Hello
+  <h1>
+    World
+  </h1>
+</div>`
+              }
+              margin="20px auto"
+            />
+            <Text>equalls</Text>
+            <CodePane
+              lang="jsx"
+              source={
+`{
+  type: 'div',
+  children: [
+    'Hello',
+    {
+      type: 'h1',
+      children: 'World'
+    }
+  ]
+}`
+              }
+              margin="20px auto"
+            />
+          </Slide>
+
+          <Slide transition={["spin", "zoom"]} bgColor="secondary">
+            <Heading size={1} caps fit>
+              We give this tree to a renderer
+            </Heading>
+            <Heading size={1} textColor="primary">
+              ./src/index.js
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={
+`ReactDOM.render(
+  <div>
+    Hello
+    <h1>
+      World
+    </h1>
+  </div>,
+  document.getElementById('root')
+)`
+              }
+              margin="20px auto"
+            />
+          </Slide>
+
+          <Slide transition={["spin", "zoom"]} bgColor="black">
+            <Heading size={1} caps fit>
+              React Component
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/Counter.example")}
+              margin="20px auto"
+            />
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="primary">
+            <Heading size={1} caps>
+              Lifecycle
+            </Heading>
+            <CodePane
+              lang="jsx"
+              source={require("raw!../assets/Lifecycle.example")}
+              margin="20px auto"
+            />
           </Slide>
         </Deck>
       </Spectacle>
