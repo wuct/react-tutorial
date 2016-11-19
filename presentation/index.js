@@ -37,7 +37,8 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  createReactApp: require("../assets/create-react-app.png")
+  createReactApp: require("../assets/create-react-app.png"),
+  shoudComponentUpdate: require("../assets/should-component-update.png")
 };
 
 preloader(images);
@@ -345,6 +346,20 @@ surge -p ./build/ -d my-first-react-app.surge.sh
               }
               margin="20px auto"
             />
+          </Slide>
+
+          <Slide bgColor="white">
+            <Image src={images.shoudComponentUpdate} />
+
+            <Text bold>
+              Source:
+              <Link
+                textColor="secondary"
+                href="https://facebook.github.io/react/docs/optimizing-performance.html"
+              >
+                React Docs
+              </Link>
+            </Text>
           </Slide>
 
           <Slide transition={["spin", "zoom"]} bgColor="secondary">
