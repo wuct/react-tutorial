@@ -1,8 +1,11 @@
-# Spectacle Boilerplate
+# React Tutorial
 
-## Reference
+This presentation contains some basic knowledge of ReactJS.
 
-The Spectacle core API is available at [https://github.com/FormidableLabs/spectacle/blob/master/README.markdown](https://github.com/FormidableLabs/spectacle/blob/master/README.markdown).
+You can see it [here](https://react-tutorial.surge.sh).
+
+## Credit
+This web slides is built by [FormidableLabs/spectable](https://github.com/FormidableLabs/spectacle).
 
 ## Development
 
