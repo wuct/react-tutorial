@@ -584,7 +584,7 @@ const Refrigerator = () =>
               Important concepts to build a great React app
             </Heading>
             <List>
-              <ListItem textColor="white">Sigle source of truth</ListItem>
+              <ListItem textColor="white">Single source of truth</ListItem>
               <ListItem textColor="white">Immutable data structure</ListItem>
               <ListItem textColor="white">Pure function</ListItem>
             </List>
